@@ -1,4 +1,4 @@
-module logger
+module github.com/kot-w/logger
 
 go 1.16
 
