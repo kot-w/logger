@@ -6,6 +6,7 @@ import (
 	"os"
 	"regexp"
 	"strings"
+	"time"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -38,7 +39,9 @@ func init() {
 	}
 
 	encoderCfg := zap.NewProductionEncoderConfig()
-	//encoderCfg.TimeKey = ""
+	encoderCfg.EncodeTime = func(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
+		enc.AppendString(t.Format("2006-01-02 15:04:05.999999999"))
+	}
 
 	_logger = zap.New(zapcore.NewCore(
 		zapcore.NewJSONEncoder(encoderCfg),
