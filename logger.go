@@ -21,7 +21,7 @@ var (
 func init() {
 	var (
 		lvl            = zap.InfoLevel
-		levelFlagName  = "log-level"
+		levelFlagName  = "log.level"
 		levelFlagUsage = "minimum enabled logging level. debug|info|warn|error|dpanic|panic|fatal"
 	)
 
